@@ -1,0 +1,143 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.allin {
+width: 1000px;
+margin: 0 auto;
+}
+
+#start {
+	position: absolute;
+	width: 1000px;
+	height: 700px;
+	z-index: 900;
+	cursor: pointer;
+}
+.container {
+	width: 1000px;
+	height: 700px;
+	background-color: #0FF;
+}
+.character {
+	position: absolute;
+	width: 200px;
+	height: 202px;
+	top: 36%;
+	left: 150px;
+	background-image: url(../images/cat.png);
+
+	-webkit-background-size: 200px;
+	-moz-background-size: 200px;
+	background-size: 200px;
+}
+
+
+#up {
+	height: 20%;
+	width: 200px;
+	background-color: #008000;
+	position: absolute;
+	top: 0;
+	right: -200px;
+}
+
+#down {
+	width: 200px;
+	height: 30%;
+	background-color: #008000;
+	bottom: 0;
+	position: absolute;
+	right: -200px;
+}
+
+.loser {
+	position: absolute;
+	width: 300px;
+	height: 200px;
+	background-color: #FFA500;
+	top: 200px;
+	left: 440px;
+	display: none;
+}
+.loser p {
+	margin: 0 auto;
+	width: 146px;
+	font-family: tahoma;
+	color: #FFF;
+	font-size: 30px;
+	padding-top: 60px;
+
+}
+
+.again{
+	position: absolute;
+width: 100px;
+height: 40px;
+background-color: #F00;
+top: 130px;
+left: 20px;
+cursor: pointer;
+}
+
+.again p {
+	margin: 0 auto;
+	width: 43px;
+	font-family: tahoma;
+	color: #FFF;
+	font-size: 15px;
+	padding-top: 12px;
+}
+
+#floor {
+	width: 100%;
+	height: 118px;
+	background-color: #A52A2A;
+}
+
+
+
