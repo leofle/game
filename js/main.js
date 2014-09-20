@@ -7,11 +7,11 @@
     var obup = $('#up');
     var obdown = $('#down');
     var start = $('#start');
-    var count = 0;
     var cWidth = $(window).width();
     var cheight = $(window).height();
-
-    $('.count').html(count);
+    var count = $('#counter').val();
+    var endValue = true;
+    $('.allin').height(cheight);
 
     start.click(function() {
         start.fadeOut(200);
@@ -22,46 +22,50 @@
                 top: '100%'
             }, 3000);
         });
-        animObs();
+        if (endValue === true){
+            animObs();
+        }
     });
 
     container.on('click', function(event) {
         event.preventDefault();
         //character part
-
         character.stop();
         character.animate({
             top: '-=25%'
         }, 1000, function() {
             character.animate({
                 top: '100%'
-            }, 3000);
+            }, 3000,checkTop());
         });
-
-        //if character touch something
-        checkTop();
 
     });
 
     function animObs() {
-        count++;
         obstacle.animate({
-            right: cWidth
+            right: '100%'
         }, 6000, function() {
             obstacle.css('right', '-200px');
-            $('.count').html(count);
             animObs();
         });
     }
 
     function checkTop() {
-        if ((character.css('top') > '724px') === true) {
+        var windowHeight = $(window).height();
+        if (character.offset().top < -200) {
+            console.log('out of bounds');
             loser();
         }
-        if (obup.css('right') >= '298px' && character.css('top') <= '163px') {
+        if (character.offset().top > windowHeight) {
+            console.log('out of bounds');
             loser();
         }
-        if (obdown.css('right') >= '298px' && character.css('top') >= '376px') {
+        if (obup.offset().right >= '294px' && character.offset().top <= '122px') {
+            console.log('touch up');
+            loser();
+        }
+        if (obdown.css('right') <= '304px' && character.css('top') >= '43%') {
+            console.log('touch down');
             loser();
         }
 
@@ -71,12 +75,15 @@
 
     function loser() {
         $('.loser').css('display', 'block');
-        obstacle.stop();
+        obstacle.hide();
         character.stop();
+        endValue = false;
     }
 
     $('.again').click(function() {
         location.reload();
     });
+
+
 
 })();
