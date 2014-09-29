@@ -72,5 +72,5 @@ module.exports = function(grunt) {
 
     // Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['uglify','imagemin', 'autoprefixer', 'cssmin', 'watch']);
-    grunt.registerTask('nw', ['uglify', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('code', ['uglify', 'autoprefixer', 'cssmin']);
 };
