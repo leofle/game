@@ -1,17 +1,20 @@
 /*global module:false*/
 module.exports = function(grunt) {
+    // load all grunt tasks
+    require('load-grunt-tasks')(grunt);
+    // this is not required but it shows the elapsed time at the end of the grunt task. just do it. :)
+    require('time-grunt')(grunt);
+
 
     // Project configuration.
     grunt.initConfig({
         // Metadata.
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-            ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         // Task configuration.
         uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
             build: {
                 src: 'js/main.js',
                 dest: 'js/build/production.min.js'
@@ -67,14 +70,7 @@ module.exports = function(grunt) {
 
     });
 
-    // 3. Where we tell Grunt we plan to use this plug-in.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-autoprefixer');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-
-    // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
+    // Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['uglify','imagemin', 'autoprefixer', 'cssmin', 'watch']);
-
+    grunt.registerTask('nw', ['uglify', 'autoprefixer', 'cssmin']);
 };
