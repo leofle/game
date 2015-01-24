@@ -9,8 +9,8 @@
     var start = $('#start');
     var cWidth = $(window).width();
     var cheight = $(window).height();
-    var count = $('#counter').val();
-    var endValue = true;
+    var count = $('#counter').val(),
+    endValue = true;
     $('.allin').height(cheight);
 
     start.click(function() {
