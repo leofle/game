@@ -1,16 +1,16 @@
 ﻿(function() {
 
     //variables
-    var character = $('.character');
-    var obstacle = $('.obstacle');
-    var container = $('.container');
-    var obup = $('#up');
-    var obdown = $('#down');
-    var start = $('#start');
-    var cWidth = $(window).width();
-    var cheight = $(window).height();
-    var count = $('#counter').val();
-    var endValue = true;
+    var character = $('.character'),
+    obstacle = $('.obstacle'),
+    container = $('.container'),
+    obup = $('#up'),
+    obdown = $('#down'),
+    start = $('#start'),
+    cWidth = $(window).width(),
+    cheight = $(window).height(),
+    count = $('#counter').val(),
+    endValue = true;
     $('.allin').height(cheight);
 
     start.click(function() {
