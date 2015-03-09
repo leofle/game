@@ -27,8 +27,8 @@
         }
     });
 
-    container.on('click', function(event) {
-        event.preventDefault();
+    container.on('click', function(e) {
+        e.preventDefault();
         //character part
         character.stop();
         character.animate({
