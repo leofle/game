@@ -7,8 +7,8 @@
     obup = $('#up'),
     obdown = $('#down'),
     start = $('#start'),
-    cWidth = $(window).width(),
-    cheight = $(window).height(),
+    cWidth = window.innerWidth,
+    cheight = window.innerHeight,
     count = $('#counter').val(),
     endValue = true;
     $('.allin').height(cheight);
