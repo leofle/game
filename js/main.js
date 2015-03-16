@@ -27,7 +27,7 @@
         }
     });
 
-    container.on('click', function(e) {
+    container.click(function(e) {
         e.preventDefault();
         //character part
         character.stop();
