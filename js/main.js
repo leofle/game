@@ -1,4 +1,4 @@
-﻿(function() {
+﻿(function ($,window,document,undefined) {
 
     //variables
     var character = $('.character'),
@@ -86,4 +86,4 @@
 
 
 
-})();
+})(jQuery,this,this.document);
