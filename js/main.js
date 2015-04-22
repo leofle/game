@@ -1,15 +1,15 @@
-﻿(function() {
+﻿(function ($,window,document,undefined) {
 
     //variables
-    var character = $('.character');
-    var obstacle = $('.obstacle');
-    var container = $('.container');
-    var obup = $('#up');
-    var obdown = $('#down');
-    var start = $('#start');
-    var cWidth = $(window).width();
-    var cheight = $(window).height();
-    var count = $('#counter').val(),
+    var character = $('.character'),
+    obstacle = $('.obstacle'),
+    container = $('.container'),
+    obup = $('#up'),
+    obdown = $('#down'),
+    start = $('#start'),
+    cWidth = window.innerWidth,
+    cheight = window.innerHeight,
+    count = $('#counter').val(),
     endValue = true;
     $('.allin').height(cheight);
 
@@ -27,8 +27,8 @@
         }
     });
 
-    container.on('click', function(event) {
-        event.preventDefault();
+    container.click(function(e) {
+        e.preventDefault();
         //character part
         character.stop();
         character.animate({
@@ -85,5 +85,4 @@
     });
 
 
-
-})();
+})(jQuery,this,this.document);
