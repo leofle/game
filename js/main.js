@@ -4,16 +4,18 @@
     var character = $('.character'),
     obstacle = $('.obstacle'),
     container = $('.container'),
-    obup = $('#up'),
-    obdown = $('#down'),
-    start = $('#start'),
+    obup = document.getElementById('up'),
+    obdown = document.getElementById('down'),
+    start = document.getElementById('start'),
     cWidth = window.innerWidth,
     cheight = window.innerHeight,
-    count = $('#counter').val(),
+    count = document.getElementById('counter').value,
     endValue = true;
     $('.allin').height(cheight);
 
-    start.click(function() {
+    start.addEventListener('click',jumpFn,false);
+
+    function jumpFn() {
         start.fadeOut(200);
         character.animate({
             top: '-=25%'
@@ -25,7 +27,7 @@
         if (endValue === true){
             animObs();
         }
-    });
+    }
 
     container.click(function(e) {
         e.preventDefault();
