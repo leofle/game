@@ -76,7 +76,8 @@
     }
 
     function loser() {
-        $('.loser').css('display', 'block');
+      var looser = document.getElementsByClassName('loser');
+        looser.style.display = 'block';
         obstacle.hide();
         character.stop();
         endValue = false;
