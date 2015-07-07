@@ -16,7 +16,7 @@
     start.addEventListener('click',jumpFn,false);
 
     function jumpFn() {
-        start.fadeOut(200);
+
         character.animate({
             top: '-=25%'
         }, 1000, function() {
@@ -54,15 +54,16 @@
 
     function checkTop() {
         var windowHeight = $(window).height();
-        if (character.offset().top < -200) {
+        console.log(obup);
+        if (character.offsetTop < -200) {
             console.log('out of bounds');
             loser();
         }
-        if (character.offset().top > windowHeight) {
+        if (character.offsetTop > windowHeight) {
             console.log('out of bounds');
             loser();
         }
-        if (obup.offset().right >= '294px' && character.offset().top <= '122px') {
+        if (obup.offsetLeft >= '294px' && character.offsetTop <= '122px') {
             console.log('touch up');
             loser();
         }
@@ -83,9 +84,12 @@
         endValue = false;
     }
 
-    $('.again').click(function() {
+    function locReload() {
         location.reload();
-    });
+    }
+
+    var againEl = document.getElementsByClassName('again')[0];
+    againEl.addEventListener('click',locReload ,false );
 
 
 })(jQuery,this,this.document);
