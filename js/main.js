@@ -1,8 +1,8 @@
 ﻿(function ($,window,document,undefined) {
 
     //variables
-    var character = $('.character'),
-    obstacle = $('.obstacle'),
+    var character = document.getElementsByClassName('character')[0],
+    obstacle = document.getElementsByClassName('obstacle')[0],
     container = $('.container'),
     obup = document.getElementById('up'),
     obdown = document.getElementById('down'),
