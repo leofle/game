@@ -11,7 +11,8 @@
     cheight = window.innerHeight,
     count = document.getElementById('counter').value,
     endValue = true;
-    $('.allin').height(cheight);
+    var allin = document.querySelector('.allin');
+    allin.style.height = cheight;
 
     start.addEventListener('click',jumpFn,false);
 
