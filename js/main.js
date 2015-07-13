@@ -10,8 +10,8 @@
     cWidth = window.innerWidth,
     cheight = window.innerHeight,
     count = document.getElementById('counter').value,
-    endValue = true;
-    var allin = document.querySelector('.allin');
+    endValue = true,
+    allin = document.querySelector('.allin');
     allin.style.height = cheight;
 
     start.addEventListener('click',jumpFn,false);
