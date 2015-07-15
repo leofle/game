@@ -30,8 +30,8 @@
         }
     }
 
-    container.click(function(e) {
-        e.preventDefault();
+    container.click(function(evnt) {
+        evnt.preventDefault();
         //character part
         character.stop();
         character.animate({
