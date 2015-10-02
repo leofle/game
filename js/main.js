@@ -48,7 +48,7 @@
         obstacle.animate({
             right: '100%'
         }, 6000, function() {
-            obstacle.css('right', '-200px');
+            obstacle.style.right = '-200px';
             animObs();
         });
     }
