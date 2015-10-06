@@ -1,8 +1,9 @@
-﻿(function ($,window,document,undefined) {
+﻿
+(function($, window, document, undefined) {
 
-    //variables
-    var character = $('#character'),
-    obstacle = $('.obstacle') ,
+  //variables
+  var character = $('#character'),
+    obstacle = $('.obstacle'),
     container = $('.container'),
     obup = document.getElementById('up'),
     obdown = document.getElementById('down'),
@@ -12,85 +13,85 @@
     count = document.getElementById('counter').value,
     endValue = true,
     allin = document.querySelector('.allin');
-    allin.style.height = cheight;
+  allin.style.height = cheight;
 
-    start.addEventListener('click',jumpFn,false);
+  start.addEventListener('click', jumpFn, false);
 
-    function jumpFn() {
+  function jumpFn() {
 
-        character.animate({
-            top: '-=25%'
-        }, 1000, function() {
-            character.animate({
-                top: '100%'
-            }, 3000);
-        });
-        if (endValue === true){
-            animObs();
-        }
+    character.animate({
+      top: '-=25%'
+    }, 1000, function() {
+      character.animate({
+        top: '100%'
+      }, 3000);
+    });
+    if (endValue === true) {
+      animObs();
     }
+  }
 
-    container.click(function(evnt) {
-        evnt.preventDefault();
-        //character part
-        character.stop();
-        character.animate({
-            top: '-=25%'
-        }, 1000, function() {
-            character.animate({
-                top: '100%'
-            }, 3000,checkTop());
-        });
-
+  container.click(function(evnt) {
+    evnt.preventDefault();
+    //character part
+    character.stop();
+    character.animate({
+      top: '-=25%'
+    }, 1000, function() {
+      character.animate({
+        top: '100%'
+      }, 3000, checkTop());
     });
 
-    function animObs() {
-        obstacle.animate({
-            right: '100%'
-        }, 5000, function() {
-            obstacle.style.right = '-200px';
-            animObs();
-        });
+  });
+
+  function animObs() {
+    obstacle.animate({
+      right: '100%'
+    }, 5000, function() {
+      obstacle.style.right = '-200px';
+      animObs();
+    });
+  }
+
+  function checkTop() {
+    var windowHeight = $(window).height();
+    console.log(obup);
+    if (character.offsetTop < -200) {
+      console.log('out of bounds');
+      loser();
+    }
+    if (character.offsetTop > windowHeight) {
+      console.log('out of bounds');
+      loser();
+    }
+    if (obup.offsetLeft >= '294px' && character.offsetTop <= '122px') {
+      console.log('touch up');
+      loser();
+    }
+    if (obdown.css('right') <= '304px' && character.css('top') >= '43%') {
+      console.log('touch down');
+      loser();
     }
 
-    function checkTop() {
-        var windowHeight = $(window).height();
-        console.log(obup);
-        if (character.offsetTop < -200) {
-            console.log('out of bounds');
-            loser();
-        }
-        if (character.offsetTop > windowHeight) {
-            console.log('out of bounds');
-            loser();
-        }
-        if (obup.offsetLeft >= '294px' && character.offsetTop <= '122px') {
-            console.log('touch up');
-            loser();
-        }
-        if (obdown.css('right') <= '304px' && character.css('top') >= '43%') {
-            console.log('touch down');
-            loser();
-        }
+    //if character touch something
 
-        //if character touch something
+  }
 
-    }
+  function loser() {
+    var looser = document.getElementsByClassName('loser');
+    looser.style.display = 'block';
+    obstacle.hide();
+    character.stop();
+    endValue = false;
+  }
 
-    function loser() {
-      var looser = document.getElementsByClassName('loser');
-        looser.style.display = 'block';
-        obstacle.hide();
-        character.stop();
-        endValue = false;
-    }
+  function locReload() {
+    location.reload();
+  }
 
-    function locReload() {
-        location.reload();
-    }
-
-    var againEl = document.getElementsByClassName('again')[0];
-    againEl.addEventListener('click',locReload ,false );
+  var againEl = document.getElementsByClassName('again')[0];
+  againEl.addEventListener('click', locReload, false);
 
 
-})(jQuery,this,this.document);
+})(jQuery, this, this.document);
